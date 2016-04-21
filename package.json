@@ -1,0 +1,23 @@
+{
+  "name": "rough-produce",
+  "version": "1.0.0",
+  "description": "Log `support` events",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/shimaore/rough-produce"
+  },
+  "keywords": [
+    "Log",
+    "spicy-action"
+  ],
+  "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/shimaore/rough-produce/issues"
+  },
+  "homepage": "https://github.com/shimaore/rough-produce"
+}
