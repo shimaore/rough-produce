@@ -1,5 +1,6 @@
 {
   "name": "rough-produce",
+  "docker_name": "shimaore/rough-produce",
   "version": "1.0.0",
   "description": "Log `support` events",
   "main": "index.js",
