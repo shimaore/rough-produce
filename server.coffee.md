@@ -51,3 +51,6 @@
             .put data
             .catch (error) ->
               debug "put", data, error.stack ? error.toString()
+
+    socket.emit 'configure',
+      support: true
