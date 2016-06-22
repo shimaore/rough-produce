@@ -4,7 +4,8 @@
     assert = require 'assert'
 
     pkg = require './package'
-    debug = (require 'debug') pkg.name
+    @name = "#{pkg.name}:server"
+    debug = (require 'debug') @name
 
     assert process.env.LOGGING?, 'Missing LOGGING environment variable.'
     logging = new PouchDB process.env.LOGGING
