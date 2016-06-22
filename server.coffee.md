@@ -47,4 +47,7 @@
             data.error
           ].join '-'
           data._id = "event:#{data.event}"
-          logging.put data
+          logging
+            .put data
+            .catch (error) ->
+              debug "put", data, error.stack ? error.toString()
