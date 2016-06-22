@@ -11,11 +11,33 @@
     logging = new PouchDB process.env.LOGGING
 
     assert process.env.IO?, 'Missing IO environment variable.'
-    io = IO process.env.IO
+    socket = IO process.env.IO
+
+    socket.on 'connect_error', (o) ->
+      debug 'connect_error', o.stack ? o.toString()
+    socket.on 'connect_timeout', ->
+      debug 'connect_timeout'
+    socket.on 'reconnect', (n) ->
+      debug 'reconnect', n
+    socket.on 'reconnect_attempt', ->
+      debug 'reconnect_attempt'
+    socket.on 'reconnecting', (n) ->
+      debug 'reconnecting', n
+    socket.on 'reconnect_error', (o) ->
+      debug 'reconnect_error', o.stack ? o.toString()
+    socket.on 'reconnect_failed', ->
+      debug 'reconnect_failed'
+
+    socket.on 'connect', ->
+      debug 'connect'
+    socket.on 'error', (o) ->
+      debug 'connect', o.stack ? o.toString()
+    socket.on 'disconnect', ->
+      debug 'disconnect'
 
     for event in Cuddly.events
       do (event) ->
-        io.on event, (data) ->
+        socket.on event, (data) ->
           data.level = event.substr 7
           data.event = [
             data.application
