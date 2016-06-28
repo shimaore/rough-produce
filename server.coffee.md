@@ -30,6 +30,9 @@
 
     socket.on 'connect', ->
       debug 'connect'
+      socket.emit 'configure',
+        support: true
+
     socket.on 'error', (o) ->
       debug 'connect', o.stack ? o.toString()
     socket.on 'disconnect', ->
@@ -51,6 +54,3 @@
             .put data
             .catch (error) ->
               debug "put", data, error.stack ? error.toString()
-
-    socket.emit 'configure',
-      support: true
