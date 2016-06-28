@@ -1,4 +1,4 @@
-FROM node:6.2.2
+FROM node:6.2
 MAINTAINER Stéphane Alnet <stephane@shimaore.net>
 
 # Our convention is to use userid 9999 as an anonymous docker user.
